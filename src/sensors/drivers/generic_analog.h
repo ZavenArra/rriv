@@ -53,6 +53,9 @@ typedef struct generic_linear_analog_type // 64 bytes
 class GenericAnalog : public AnalogSensorDriver
 {
 
+//
+// SensorDriver Interface
+//
 public:
   // Constructor
   GenericAnalog();
@@ -72,11 +75,17 @@ public:
 
   void initCalibration();
   void calibrationStep(char *step, int arg_cnt, char ** args);
-  void addCalibrationParametersToJSON(cJSON *json);
 
 protected:
   void setDriverDefaults();
   void configureDriverFromJSON(cJSON *json);
+
+
+//
+// Internal Implementation
+//
+public:
+  void addCalibrationParametersToJSON(cJSON *json);
 
 private:
   generic_linear_analog_sensor configuration;
@@ -90,7 +99,7 @@ private:
   float calibrate_high_variance = -1;
   double calibrate_high_value = 0;
   short calibrate_low_reading = 0;
-  float calibration_low_variance = -1;
+  float calibrate_low_variance = -1;
   double calibrate_low_value = 0;
 
   void computeCalibratedCurve();

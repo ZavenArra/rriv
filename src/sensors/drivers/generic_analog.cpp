@@ -271,11 +271,6 @@ char *GenericAnalog::getDataString()
   return dataString;
 }
 
-char *GenericAnalog::getCSVColumnNames()
-{
-  debug(csvColumnHeaders);
-  return csvColumnHeaders;
-}
 
 protocol_type GenericAnalog::getProtocol()
 {

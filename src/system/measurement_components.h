@@ -16,7 +16,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
+#ifndef WATERBEAR_MEASUREMENT_COMPONENTS
+#define WATERBEAR_MEASUREMENT_COMPONENTS
+
 #include "system/adc.h"
 
 // Components
 extern AD7091R * externalADC;
+
+#endif

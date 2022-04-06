@@ -335,7 +335,7 @@ void Datalogger::loadSensorConfigurations()
     readSensorConfigurationFromEEPROM(i, sensorConfig);
 
     notify(sensorConfig->common.sensor_type);
-    if (sensorConfig->common.sensor_type <= MAX_SENSOR_TYPE)
+    if(driverForSensorType(sensorConfig->common.sensor_type) != NULL)
     {
       notify("found configured sensor");
       sensorCount++;
@@ -358,15 +358,15 @@ void Datalogger::loadSensorConfigurations()
   {
     notify("FREE MEM");
     printFreeMemory();
-    if (configs[i]->common.sensor_type > MAX_SENSOR_TYPE)
-    {
-      notify("no sensor");
-      continue;
-    }
 
     debug("getting driver for sensor type");
     debug(configs[i]->common.sensor_type);
     SensorDriver *driver = driverForSensorType(configs[i]->common.sensor_type);
+    if(driver == NULL)
+    {
+      notify("no sensor");
+      continue;
+    }
     debug("got sensor driver");
     checkMemory();
 

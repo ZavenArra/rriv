@@ -76,7 +76,7 @@ void setup(void)
   {
     notify("Device will enter logging mode in 5 seconds");
     notify("Type 'i' to exit to interactive mode");
-    Serial2.print("CMD >> ");
+    Serial2.print("CMD >> \u200B");
     int start = timestamp();
     int now = start;
     while (now < start + 5)
@@ -88,7 +88,8 @@ void setup(void)
   }
   else
   {
-    Serial2.print("CMD >> ");
+    Serial2.println("\u200B\u200B\u200B\u200B");
+    Serial2.print("CMD >> \a");
   }
 
 }

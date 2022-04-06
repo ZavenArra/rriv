@@ -45,7 +45,6 @@ class AtlasEC : public I2CSensorDriver
     void stop();
     bool takeMeasurement();
     char * getDataString();
-    char * getCSVColumnNames();
     protocol_type getProtocol();
     const char * getBaseColumnHeaders();
 

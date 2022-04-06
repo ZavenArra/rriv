@@ -38,6 +38,12 @@ bool SensorDriver::burstCompleted(){
 }
 
 
+char * SensorDriver::getCSVColumnNames()
+{
+  debug(csvColumnHeaders);
+  return csvColumnHeaders;
+}
+
 void SensorDriver::configureCSVColumns()
 {
   notify("config csv columns");

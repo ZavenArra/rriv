@@ -148,12 +148,6 @@ char * AtlasEC::getDataString()
   return dataString;
 }
 
-char * AtlasEC::getCSVColumnNames()
-{
-   debug(csvColumnHeaders);
-   return csvColumnHeaders;
-}
-
 
 void AtlasEC::initCalibration()
 {

@@ -23,17 +23,29 @@
 #include <map>
 #include <string>
 #include "drivers/generic_analog.h"
-#include "drivers/atlas_ec.h"
+// #include "drivers/atlas_ec.h"
 
 template<typename T> SensorDriver * createInstance() { return new T; }
+
 
 typedef std::map<short, SensorDriver*(*)()> sensor_type_map_type;
 typedef std::map<std::string, SensorDriver*(*)()> sensor_string_map_type;
 
-
-void buildDriverSensorMap();
 SensorDriver * driverForSensorType(short type);
 SensorDriver * driverForSensorTypeString(char * type);
+
+extern sensor_type_map_type sensorTypeMap;
+extern sensor_string_map_type sensorStringTypeMap;
+
+std::string getSensorNameString(const __FlashStringHelper * sensorTypeName);
+
+// move to a different header so that it's not clogging up this space
+template<class T> void setTypeMaps(short sensorTypeCode, const __FlashStringHelper * sensorTypeName) 
+{ 
+  // check for duplicate keys and tell the programmer to use a different code
+  sensorTypeMap[sensorTypeCode] = &createInstance<T>;
+  sensorStringTypeMap[getSensorNameString(sensorTypeName)] = &createInstance<T>;
+}
 
 
 #endif

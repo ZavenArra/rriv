@@ -16,9 +16,15 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
+#include "sensor_types.h"
+#include "sensor_map.h"
 
-#include "measurement_components.h"
 
-// Components
-AD7091R * externalADC;
+void buildDriverSensorMap()
+{
+  setTypeMaps<GenericAnalog>(GENERIC_ANALOG_SENSOR, F("generic_analog"));
+  // setTypeMaps<AtlasEC>(GENERIC_ATLAS_SENSOR, F("atlas_ec"));
+}
 
+// Can we make a template function that looks up the sensor code based on class type, 
+// and put that into the SensorDrive base class
