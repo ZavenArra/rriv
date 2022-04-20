@@ -548,7 +548,7 @@ void Datalogger::writeStatusFieldsToLogFile()
 
   // Fetch and Log time from DS3231 RTC as epoch and human readable timestamps
   uint32 currentMillis = millis();
-  double currentTime = (double)currentEpoch + (((double)currentMillis - offsetMillis) / 1000);
+  double currentTime = (double)currentEpoch + ( (double) (currentMillis - offsetMillis) ) / 1000;
 
   char currentTimeString[20];
   char humanTimeString[20];
