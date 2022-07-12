@@ -155,6 +155,15 @@ Type 'help' for command list.
 
 void workspace()
 {
+  pinMode(PA4, OUTPUT);
+  int i = 0;
+  while(1){
+    digitalWrite(PA4, i % 2);
+    Serial2.println("ok");
+    Serial2.println(analogRead(PB0));
+    delay(250);
+    i++;
+  };
   // notify(sizeof(long long));
   // notify(sizeof(sone));
   // exit(0);
