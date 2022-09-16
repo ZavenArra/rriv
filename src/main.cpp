@@ -56,6 +56,8 @@ void setup(void)
   enableI2C1();
   delay(500);
 
+  printFreeMemory();
+
   debug("creating datalogger");
   datalogger_settings_type *dataloggerSettings = (datalogger_settings_type *)malloc(sizeof(datalogger_settings_type));
   Datalogger::readConfiguration(dataloggerSettings);
@@ -158,4 +160,17 @@ void workspace()
   // notify(sizeof(long long));
   // notify(sizeof(sone));
   // exit(0);
+
+  // Serial2.println("hello");
+  // pinMode(ONBOARD_LED_PIN, OUTPUT);
+  // bool blink = true;
+  // while(true)
+  // {
+  //   Serial2.println("blink");
+  //   printFreeMemory();
+  //   // intentionalMemoryLeak();
+  //   digitalWrite(ONBOARD_LED_PIN, blink);
+  //   delay(1000);
+  //   blink = !blink;
+  // }
 }

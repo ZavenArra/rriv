@@ -3,6 +3,7 @@
 
 #include "generic_analog.h"
 #include "atlas_ec.h"
+#include "atlas_co2_driver.h"
 #include "driver_template.h"
 #include "adafruit_dht22.h"
 
